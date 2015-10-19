@@ -1,0 +1,59 @@
+// This file defines a GRPC interface to hbase, somehow similar to what
+// the hbase thrift server offers.
+//
+// All calls accept streams and are internally batched.
+syntax = "proto3";
+
+package hbase.proto;
+
+option java_package = "io.lefty.hbase.proto";
+option java_outer_classname = "HBaseProto";
+
+import "google/protobuf/empty.proto";
+
+message ColumnQualifier {
+  bytes cf = 1;
+  bytes qualifier = 2;
+}
+
+message Column {
+  ColumnQualifier column = 1;
+  bytes data = 2;
+}
+
+message Columns {
+  repeated Column column = 1;
+}
+
+message Put {
+  bytes id = 1;
+  string table = 2;
+  Columns columns = 3;
+}
+
+message Get {
+  string table = 1;
+  bytes id = 2;
+
+  // If unset, loads all columns, else loads the ones specified.
+  repeated ColumnQualifier column = 3;
+}
+
+message Result {
+  bool found = 1;
+
+  // The fields below only have meaning if 'found' was true.
+
+  bytes id = 2;
+  Columns columns = 3;
+}
+
+// The proxy service.
+service HBase {
+  // Persists all the put items.
+  rpc Puts(stream Put) returns (google.protobuf.Empty) {}
+
+  // Returns a result for each get, in the same order as they
+  // were sent.
+  rpc Gets(stream Get) returns (stream Result) {}
+}
