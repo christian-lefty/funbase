@@ -6,13 +6,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.lefty</groupId>
-    <artifactId>left-hbase</artifactId>
+    <artifactId>funbase</artifactId>
     <version>0.1-alpha</version>
   </parent>
-  <artifactId>left-hbase-client</artifactId>
+  <artifactId>funbase-client</artifactId>
   <packaging>jar</packaging>
 
-  <name>Left base client</name>
+  <name>Funbase client</name>
   <dependencies>
     <dependency>
       <groupId>com.google.protobuf</groupId>

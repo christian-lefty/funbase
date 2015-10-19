@@ -5,10 +5,10 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.lefty</groupId>
-  <artifactId>left-hbase</artifactId>
+  <artifactId>funbase</artifactId>
   <packaging>pom</packaging>
   <version>0.1-alpha</version>
-  <name>Left Base</name>
+  <name>Funbase</name>
   <modules>
     <module>client</module>
     <module>server</module>

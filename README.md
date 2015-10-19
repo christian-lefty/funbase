@@ -1,2 +1,3 @@
-# left-base
+# funbase
 GRPC proxy to hbase
+
