@@ -48,7 +48,7 @@
   <dependencies>
     <dependency>
       <groupId>io.lefty</groupId>
-      <artifactId>left-hbase-client</artifactId>
+      <artifactId>funbase-client</artifactId>
       <version>0.1-alpha</version>
     </dependency>
     <dependency>
