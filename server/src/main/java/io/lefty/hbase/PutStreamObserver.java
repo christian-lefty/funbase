@@ -86,7 +86,7 @@ final class PutStreamObserver implements StreamObserver<Put> {
       return;
     }
 
-    LOG.info("submitting get task for {} elements.", puts.size());
+    LOG.info("submitting put task for {} elements.", puts.size());
     hbaseOperations.submit(this::callPut);
   }
 
