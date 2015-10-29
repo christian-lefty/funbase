@@ -37,6 +37,7 @@ final class DeleteStreamObserver implements StreamObserver<Delete> {
       for (ColumnQualifier col : del.getColumnList()) {
         delete.addColumn(col.getCf().toByteArray(), col.getQualifier().toByteArray());
       }
+      LOG.info("deleting for id: {}.", del.getId().toStringUtf8());
       table.delete(delete);
     } catch (IOException ex) {
       LOG.error("error deleting from hbase.", ex);
