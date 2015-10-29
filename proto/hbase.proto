@@ -39,6 +39,12 @@ message Get {
   repeated ColumnQualifier column = 3;
 }
 
+message Delete {
+  bytes id = 1;
+  string table = 2;
+  repeated ColumnQualifier column = 3;
+}
+
 message Result {
   bool found = 1;
 
@@ -52,6 +58,9 @@ message Result {
 service HBase {
   // Persists all the put items.
   rpc Puts(stream Put) returns (google.protobuf.Empty) {}
+
+  // Deletes the items.
+  rpc Deletes(stream Delete) returns (google.protobuf.Empty) {}
 
   // Returns a result for each get, in the same order as they
   // were sent.

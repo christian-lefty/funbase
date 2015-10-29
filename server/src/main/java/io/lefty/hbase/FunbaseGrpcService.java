@@ -4,6 +4,7 @@ import com.google.protobuf.Empty;
 
 import io.grpc.stub.StreamObserver;
 import io.lefty.hbase.proto.HBaseGrpc;
+import io.lefty.hbase.proto.HBaseProto.Delete;
 import io.lefty.hbase.proto.HBaseProto.Get;
 import io.lefty.hbase.proto.HBaseProto.Put;
 import io.lefty.hbase.proto.HBaseProto.Result;
@@ -28,6 +29,11 @@ final class FunbaseGrpcService implements HBaseGrpc.HBase {
   @Override
   public StreamObserver<Put> puts(StreamObserver<Empty> responseObserver) {
     return new PutStreamObserver(hbase, hbaseOperations, responseObserver);
+  }
+
+  @Override
+  public StreamObserver<Delete> deletes(StreamObserver<Empty> responseObserver) {
+    return new DeleteStreamObserver(hbase, responseObserver);
   }
 
   @Override
