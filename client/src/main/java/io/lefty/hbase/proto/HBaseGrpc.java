@@ -34,7 +34,7 @@ public class HBaseGrpc {
   public static final io.grpc.MethodDescriptor<io.lefty.hbase.proto.HBaseProto.Delete,
       com.google.protobuf.Empty> METHOD_DELETES =
       io.grpc.MethodDescriptor.create(
-          io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING,
+          io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "hbase.proto.HBase", "Deletes"),
           io.grpc.protobuf.ProtoUtils.marshaller(io.lefty.hbase.proto.HBaseProto.Delete.getDefaultInstance()),
@@ -68,7 +68,7 @@ public class HBaseGrpc {
     public io.grpc.stub.StreamObserver<io.lefty.hbase.proto.HBaseProto.Put> puts(
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver);
 
-    public io.grpc.stub.StreamObserver<io.lefty.hbase.proto.HBaseProto.Delete> deletes(
+    public void deletes(io.lefty.hbase.proto.HBaseProto.Delete request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver);
 
     public io.grpc.stub.StreamObserver<io.lefty.hbase.proto.HBaseProto.Get> gets(
@@ -76,9 +76,14 @@ public class HBaseGrpc {
   }
 
   public static interface HBaseBlockingClient {
+
+    public com.google.protobuf.Empty deletes(io.lefty.hbase.proto.HBaseProto.Delete request);
   }
 
   public static interface HBaseFutureClient {
+
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deletes(
+        io.lefty.hbase.proto.HBaseProto.Delete request);
   }
 
   public static class HBaseStub extends io.grpc.stub.AbstractStub<HBaseStub>
@@ -106,10 +111,10 @@ public class HBaseGrpc {
     }
 
     @java.lang.Override
-    public io.grpc.stub.StreamObserver<io.lefty.hbase.proto.HBaseProto.Delete> deletes(
+    public void deletes(io.lefty.hbase.proto.HBaseProto.Delete request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
-      return asyncClientStreamingCall(
-          getChannel().newCall(METHOD_DELETES, getCallOptions()), responseObserver);
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_DELETES, getCallOptions()), request, responseObserver);
     }
 
     @java.lang.Override
@@ -136,6 +141,12 @@ public class HBaseGrpc {
         io.grpc.CallOptions callOptions) {
       return new HBaseBlockingStub(channel, callOptions);
     }
+
+    @java.lang.Override
+    public com.google.protobuf.Empty deletes(io.lefty.hbase.proto.HBaseProto.Delete request) {
+      return blockingUnaryCall(
+          getChannel().newCall(METHOD_DELETES, getCallOptions()), request);
+    }
   }
 
   public static class HBaseFutureStub extends io.grpc.stub.AbstractStub<HBaseFutureStub>
@@ -153,6 +164,13 @@ public class HBaseGrpc {
     protected HBaseFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new HBaseFutureStub(channel, callOptions);
+    }
+
+    @java.lang.Override
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deletes(
+        io.lefty.hbase.proto.HBaseProto.Delete request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_DELETES, getCallOptions()), request);
     }
   }
 
@@ -173,14 +191,15 @@ public class HBaseGrpc {
           }))
       .addMethod(
         METHOD_DELETES,
-        asyncClientStreamingCall(
-          new io.grpc.stub.ServerCalls.ClientStreamingMethod<
+        asyncUnaryCall(
+          new io.grpc.stub.ServerCalls.UnaryMethod<
               io.lefty.hbase.proto.HBaseProto.Delete,
               com.google.protobuf.Empty>() {
             @java.lang.Override
-            public io.grpc.stub.StreamObserver<io.lefty.hbase.proto.HBaseProto.Delete> invoke(
+            public void invoke(
+                io.lefty.hbase.proto.HBaseProto.Delete request,
                 io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
-              return serviceImpl.deletes(responseObserver);
+              serviceImpl.deletes(request, responseObserver);
             }
           }))
       .addMethod(

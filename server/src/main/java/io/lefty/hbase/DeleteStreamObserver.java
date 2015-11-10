@@ -30,19 +30,7 @@ final class DeleteStreamObserver implements StreamObserver<Delete> {
 
   @Override
   public void onNext(Delete del) {
-    TableName tn = TableName.valueOf(del.getTable());
-    try (Table table = hbase.getTable(tn)) {
-      org.apache.hadoop.hbase.client.Delete delete =
-          new org.apache.hadoop.hbase.client.Delete(del.getId().toByteArray());
-      for (ColumnQualifier col : del.getColumnList()) {
-        delete.addColumn(col.getCf().toByteArray(), col.getQualifier().toByteArray());
-      }
-      LOG.info("deleting for id: {}.", del.getId().toStringUtf8());
-      table.delete(delete);
-    } catch (IOException ex) {
-      LOG.error("error deleting from hbase.", ex);
-      response.onError(ex);
-    }
+
   }
 
   @Override

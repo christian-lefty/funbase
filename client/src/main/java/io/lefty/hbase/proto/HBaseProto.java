@@ -4928,13 +4928,12 @@ public final class HBaseProto {
       " \001(\014\022\r\n\005table\030\002 \001(\t\022,\n\006column\030\003 \003(\0132\034.hb" +
       "ase.proto.ColumnQualifier\"J\n\006Result\022\r\n\005f" +
       "ound\030\001 \001(\010\022\n\n\002id\030\002 \001(\014\022%\n\007columns\030\003 \001(\0132" +
-      "\024.hbase.proto.Columns2\256\001\n\005HBase\0224\n\004Puts\022" +
+      "\024.hbase.proto.Columns2\254\001\n\005HBase\0224\n\004Puts\022" +
       "\020.hbase.proto.Put\032\026.google.protobuf.Empt" +
-      "y\"\000(\001\022:\n\007Deletes\022\023.hbase.proto.Delete\032\026." +
-      "google.protobuf.Empty\"\000(\001\0223\n\004Gets\022\020.hbas" +
-      "e.proto.Get\032\023.hbase.proto.Result\"\000(\0010\001B\"" +
-      "\n\024io.lefty.hbase.protoB\nHBaseProtob\006prot" +
-      "o3"
+      "y\"\000(\001\0228\n\007Deletes\022\023.hbase.proto.Delete\032\026." +
+      "google.protobuf.Empty\"\000\0223\n\004Gets\022\020.hbase." +
+      "proto.Get\032\023.hbase.proto.Result\"\000(\0010\001B\"\n\024" +
+      "io.lefty.hbase.protoB\nHBaseProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
