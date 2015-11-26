@@ -75,6 +75,12 @@
       <groupId>com.google.cloud.bigtable</groupId>
       <artifactId>bigtable-hbase-1.0</artifactId>
       <version>0.2.3-SNAPSHOT</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.hbase</groupId>
+          <artifactId>hbase-client</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.mortbay.jetty.alpn</groupId>
