@@ -14,6 +14,21 @@ final class Options {
   public String hbaseQuorum = "localhost:2181";
 
   /**
+   * The 3 options below are to connect to a google cloud BigTable cluster.
+   * If hbaseProjectId is null, we connect to a traditional hbase_quorum.
+   *
+   * Note that when using google cloud BigTable, alpn must be set correctly too.
+   *
+   * See: https://cloud.google.com/bigtable/docs/connecting-hbase
+   */
+  @Option(name = "-hbase_project_id")
+  public String hbaseProjectId;
+  @Option(name = "-hbase_zone")
+  public String hbaseZone;
+  @Option(name = "-hbase_cluster_id")
+  public String hbaseClusterId;
+
+  /**
    * Port for the GRPC server to listen on.
    */
   @Option(name = "-port")
@@ -24,4 +39,7 @@ final class Options {
    */
   @Option(name = "-nthreads")
   public int nthreads = 4;
+
+  @Option(name = "-operations_timeout")
+  public int operationsTimeout = 10000;
 }

@@ -1,5 +1,7 @@
 package io.lefty.hbase;
 
+import com.google.cloud.bigtable.hbase.BigtableConfiguration;
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.lefty.hbase.proto.HBaseGrpc;
@@ -38,17 +40,25 @@ public final class Funbase {
   }
 
   private static Connection hbase(Options opts) {
-    Configuration config = HBaseConfiguration.create();
-    config.set("hbase.zookeeper.quorum", opts.hbaseQuorum);
-    // TODO(christian) read this timeout from options.
-    config.set("hbase.client.operation.timeout", "10000");
-    Connection hbase;
-    try {
-      hbase = ConnectionFactory.createConnection(config);
-    } catch (IOException ex) {
-      throw new RuntimeException("cannot connect to hbase", ex);
+    if (opts.hbaseProjectId == null) {
+      LOG.info("connecting to regular hbase quorum: {}", opts.hbaseQuorum);
+      Configuration config = HBaseConfiguration.create();
+      config.set("hbase.zookeeper.quorum", opts.hbaseQuorum);
+      config.set("hbase.client.operation.timeout", Integer.toString(opts.operationsTimeout));
+      Connection hbase;
+      try {
+        hbase = ConnectionFactory.createConnection(config);
+      } catch (IOException ex) {
+        throw new RuntimeException("cannot connect to hbase", ex);
+      }
+      return hbase;
+    } else {
+      LOG.info("connecting to google BigTable: {}, {}, {}", opts.hbaseProjectId,
+          opts.hbaseZone, opts.hbaseClusterId);
+      // Connect to a google cloud BigTable.
+      return BigtableConfiguration.connect(opts.hbaseProjectId, opts.hbaseZone,
+          opts.hbaseClusterId);
     }
-    return hbase;
   }
 
   private static Options parseOptionsOrDie(String[] args, Options options) {
