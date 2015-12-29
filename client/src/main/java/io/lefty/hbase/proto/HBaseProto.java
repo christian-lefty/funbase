@@ -3373,6 +3373,882 @@ public final class HBaseProto {
 
   }
 
+  public interface DeleteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.proto.Delete)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bytes id = 1;</code>
+     */
+    com.google.protobuf.ByteString getId();
+
+    /**
+     * <code>optional string table = 2;</code>
+     */
+    java.lang.String getTable();
+    /**
+     * <code>optional string table = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getTableBytes();
+
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    java.util.List<io.lefty.hbase.proto.HBaseProto.ColumnQualifier> 
+        getColumnList();
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    io.lefty.hbase.proto.HBaseProto.ColumnQualifier getColumn(int index);
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    int getColumnCount();
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    java.util.List<? extends io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder> 
+        getColumnOrBuilderList();
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder getColumnOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code hbase.proto.Delete}
+   */
+  public  static final class Delete extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:hbase.proto.Delete)
+      DeleteOrBuilder {
+    // Use Delete.newBuilder() to construct.
+    private Delete(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private Delete() {
+      id_ = com.google.protobuf.ByteString.EMPTY;
+      table_ = "";
+      column_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Delete(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              id_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              table_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                column_ = new java.util.ArrayList<io.lefty.hbase.proto.HBaseProto.ColumnQualifier>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              column_.add(input.readMessage(io.lefty.hbase.proto.HBaseProto.ColumnQualifier.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          column_ = java.util.Collections.unmodifiableList(column_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.lefty.hbase.proto.HBaseProto.internal_static_hbase_proto_Delete_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.lefty.hbase.proto.HBaseProto.internal_static_hbase_proto_Delete_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.lefty.hbase.proto.HBaseProto.Delete.class, io.lefty.hbase.proto.HBaseProto.Delete.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString id_;
+    /**
+     * <code>optional bytes id = 1;</code>
+     */
+    public com.google.protobuf.ByteString getId() {
+      return id_;
+    }
+
+    public static final int TABLE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object table_;
+    /**
+     * <code>optional string table = 2;</code>
+     */
+    public java.lang.String getTable() {
+      java.lang.Object ref = table_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        table_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string table = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTableBytes() {
+      java.lang.Object ref = table_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        table_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COLUMN_FIELD_NUMBER = 3;
+    private java.util.List<io.lefty.hbase.proto.HBaseProto.ColumnQualifier> column_;
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    public java.util.List<io.lefty.hbase.proto.HBaseProto.ColumnQualifier> getColumnList() {
+      return column_;
+    }
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    public java.util.List<? extends io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder> 
+        getColumnOrBuilderList() {
+      return column_;
+    }
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    public int getColumnCount() {
+      return column_.size();
+    }
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    public io.lefty.hbase.proto.HBaseProto.ColumnQualifier getColumn(int index) {
+      return column_.get(index);
+    }
+    /**
+     * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+     */
+    public io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder getColumnOrBuilder(
+        int index) {
+      return column_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!id_.isEmpty()) {
+        output.writeBytes(1, id_);
+      }
+      if (!getTableBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, table_);
+      }
+      for (int i = 0; i < column_.size(); i++) {
+        output.writeMessage(3, column_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!id_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, id_);
+      }
+      if (!getTableBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, table_);
+      }
+      for (int i = 0; i < column_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, column_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static io.lefty.hbase.proto.HBaseProto.Delete parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.lefty.hbase.proto.HBaseProto.Delete prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code hbase.proto.Delete}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.proto.Delete)
+        io.lefty.hbase.proto.HBaseProto.DeleteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.lefty.hbase.proto.HBaseProto.internal_static_hbase_proto_Delete_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.lefty.hbase.proto.HBaseProto.internal_static_hbase_proto_Delete_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.lefty.hbase.proto.HBaseProto.Delete.class, io.lefty.hbase.proto.HBaseProto.Delete.Builder.class);
+      }
+
+      // Construct using io.lefty.hbase.proto.HBaseProto.Delete.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getColumnFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        id_ = com.google.protobuf.ByteString.EMPTY;
+
+        table_ = "";
+
+        if (columnBuilder_ == null) {
+          column_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          columnBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.lefty.hbase.proto.HBaseProto.internal_static_hbase_proto_Delete_descriptor;
+      }
+
+      public io.lefty.hbase.proto.HBaseProto.Delete getDefaultInstanceForType() {
+        return io.lefty.hbase.proto.HBaseProto.Delete.getDefaultInstance();
+      }
+
+      public io.lefty.hbase.proto.HBaseProto.Delete build() {
+        io.lefty.hbase.proto.HBaseProto.Delete result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public io.lefty.hbase.proto.HBaseProto.Delete buildPartial() {
+        io.lefty.hbase.proto.HBaseProto.Delete result = new io.lefty.hbase.proto.HBaseProto.Delete(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.id_ = id_;
+        result.table_ = table_;
+        if (columnBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            column_ = java.util.Collections.unmodifiableList(column_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.column_ = column_;
+        } else {
+          result.column_ = columnBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.lefty.hbase.proto.HBaseProto.Delete) {
+          return mergeFrom((io.lefty.hbase.proto.HBaseProto.Delete)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.lefty.hbase.proto.HBaseProto.Delete other) {
+        if (other == io.lefty.hbase.proto.HBaseProto.Delete.getDefaultInstance()) return this;
+        if (other.getId() != com.google.protobuf.ByteString.EMPTY) {
+          setId(other.getId());
+        }
+        if (!other.getTable().isEmpty()) {
+          table_ = other.table_;
+          onChanged();
+        }
+        if (columnBuilder_ == null) {
+          if (!other.column_.isEmpty()) {
+            if (column_.isEmpty()) {
+              column_ = other.column_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureColumnIsMutable();
+              column_.addAll(other.column_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.column_.isEmpty()) {
+            if (columnBuilder_.isEmpty()) {
+              columnBuilder_.dispose();
+              columnBuilder_ = null;
+              column_ = other.column_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              columnBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getColumnFieldBuilder() : null;
+            } else {
+              columnBuilder_.addAllMessages(other.column_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.lefty.hbase.proto.HBaseProto.Delete parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.lefty.hbase.proto.HBaseProto.Delete) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.ByteString id_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes id = 1;</code>
+       */
+      public com.google.protobuf.ByteString getId() {
+        return id_;
+      }
+      /**
+       * <code>optional bytes id = 1;</code>
+       */
+      public Builder setId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object table_ = "";
+      /**
+       * <code>optional string table = 2;</code>
+       */
+      public java.lang.String getTable() {
+        java.lang.Object ref = table_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          table_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTableBytes() {
+        java.lang.Object ref = table_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          table_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       */
+      public Builder setTable(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        table_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       */
+      public Builder clearTable() {
+        
+        table_ = getDefaultInstance().getTable();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       */
+      public Builder setTableBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        table_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.lefty.hbase.proto.HBaseProto.ColumnQualifier> column_ =
+        java.util.Collections.emptyList();
+      private void ensureColumnIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          column_ = new java.util.ArrayList<io.lefty.hbase.proto.HBaseProto.ColumnQualifier>(column_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          io.lefty.hbase.proto.HBaseProto.ColumnQualifier, io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder, io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder> columnBuilder_;
+
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public java.util.List<io.lefty.hbase.proto.HBaseProto.ColumnQualifier> getColumnList() {
+        if (columnBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(column_);
+        } else {
+          return columnBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public int getColumnCount() {
+        if (columnBuilder_ == null) {
+          return column_.size();
+        } else {
+          return columnBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public io.lefty.hbase.proto.HBaseProto.ColumnQualifier getColumn(int index) {
+        if (columnBuilder_ == null) {
+          return column_.get(index);
+        } else {
+          return columnBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder setColumn(
+          int index, io.lefty.hbase.proto.HBaseProto.ColumnQualifier value) {
+        if (columnBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnIsMutable();
+          column_.set(index, value);
+          onChanged();
+        } else {
+          columnBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder setColumn(
+          int index, io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder builderForValue) {
+        if (columnBuilder_ == null) {
+          ensureColumnIsMutable();
+          column_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          columnBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder addColumn(io.lefty.hbase.proto.HBaseProto.ColumnQualifier value) {
+        if (columnBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnIsMutable();
+          column_.add(value);
+          onChanged();
+        } else {
+          columnBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder addColumn(
+          int index, io.lefty.hbase.proto.HBaseProto.ColumnQualifier value) {
+        if (columnBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnIsMutable();
+          column_.add(index, value);
+          onChanged();
+        } else {
+          columnBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder addColumn(
+          io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder builderForValue) {
+        if (columnBuilder_ == null) {
+          ensureColumnIsMutable();
+          column_.add(builderForValue.build());
+          onChanged();
+        } else {
+          columnBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder addColumn(
+          int index, io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder builderForValue) {
+        if (columnBuilder_ == null) {
+          ensureColumnIsMutable();
+          column_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          columnBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder addAllColumn(
+          java.lang.Iterable<? extends io.lefty.hbase.proto.HBaseProto.ColumnQualifier> values) {
+        if (columnBuilder_ == null) {
+          ensureColumnIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, column_);
+          onChanged();
+        } else {
+          columnBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder clearColumn() {
+        if (columnBuilder_ == null) {
+          column_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          columnBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public Builder removeColumn(int index) {
+        if (columnBuilder_ == null) {
+          ensureColumnIsMutable();
+          column_.remove(index);
+          onChanged();
+        } else {
+          columnBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder getColumnBuilder(
+          int index) {
+        return getColumnFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder getColumnOrBuilder(
+          int index) {
+        if (columnBuilder_ == null) {
+          return column_.get(index);  } else {
+          return columnBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public java.util.List<? extends io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder> 
+           getColumnOrBuilderList() {
+        if (columnBuilder_ != null) {
+          return columnBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(column_);
+        }
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder addColumnBuilder() {
+        return getColumnFieldBuilder().addBuilder(
+            io.lefty.hbase.proto.HBaseProto.ColumnQualifier.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder addColumnBuilder(
+          int index) {
+        return getColumnFieldBuilder().addBuilder(
+            index, io.lefty.hbase.proto.HBaseProto.ColumnQualifier.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .hbase.proto.ColumnQualifier column = 3;</code>
+       */
+      public java.util.List<io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder> 
+           getColumnBuilderList() {
+        return getColumnFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          io.lefty.hbase.proto.HBaseProto.ColumnQualifier, io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder, io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder> 
+          getColumnFieldBuilder() {
+        if (columnBuilder_ == null) {
+          columnBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              io.lefty.hbase.proto.HBaseProto.ColumnQualifier, io.lefty.hbase.proto.HBaseProto.ColumnQualifier.Builder, io.lefty.hbase.proto.HBaseProto.ColumnQualifierOrBuilder>(
+                  column_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          column_ = null;
+        }
+        return columnBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hbase.proto.Delete)
+    }
+
+    // @@protoc_insertion_point(class_scope:hbase.proto.Delete)
+    private static final io.lefty.hbase.proto.HBaseProto.Delete DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.lefty.hbase.proto.HBaseProto.Delete();
+    }
+
+    public static io.lefty.hbase.proto.HBaseProto.Delete getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Delete>
+        PARSER = new com.google.protobuf.AbstractParser<Delete>() {
+      public Delete parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Delete(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Delete> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Delete> getParserForType() {
+      return PARSER;
+    }
+
+    public io.lefty.hbase.proto.HBaseProto.Delete getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ResultOrBuilder extends
       // @@protoc_insertion_point(interface_extends:hbase.proto.Result)
       com.google.protobuf.MessageOrBuilder {
@@ -4021,6 +4897,11 @@ public final class HBaseProto {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_hbase_proto_Get_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_hbase_proto_Delete_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_hbase_proto_Delete_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_proto_Result_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -4043,13 +4924,16 @@ public final class HBaseProto {
       "id\030\001 \001(\014\022\r\n\005table\030\002 \001(\t\022%\n\007columns\030\003 \001(\013" +
       "2\024.hbase.proto.Columns\"N\n\003Get\022\r\n\005table\030\001" +
       " \001(\t\022\n\n\002id\030\002 \001(\014\022,\n\006column\030\003 \003(\0132\034.hbase" +
-      ".proto.ColumnQualifier\"J\n\006Result\022\r\n\005foun",
-      "d\030\001 \001(\010\022\n\n\002id\030\002 \001(\014\022%\n\007columns\030\003 \001(\0132\024.h" +
-      "base.proto.Columns2r\n\005HBase\0224\n\004Puts\022\020.hb" +
-      "ase.proto.Put\032\026.google.protobuf.Empty\"\000(" +
-      "\001\0223\n\004Gets\022\020.hbase.proto.Get\032\023.hbase.prot" +
-      "o.Result\"\000(\0010\001B\"\n\024io.lefty.hbase.protoB\n" +
-      "HBaseProtob\006proto3"
+      ".proto.ColumnQualifier\"Q\n\006Delete\022\n\n\002id\030\001",
+      " \001(\014\022\r\n\005table\030\002 \001(\t\022,\n\006column\030\003 \003(\0132\034.hb" +
+      "ase.proto.ColumnQualifier\"J\n\006Result\022\r\n\005f" +
+      "ound\030\001 \001(\010\022\n\n\002id\030\002 \001(\014\022%\n\007columns\030\003 \001(\0132" +
+      "\024.hbase.proto.Columns2\254\001\n\005HBase\0224\n\004Puts\022" +
+      "\020.hbase.proto.Put\032\026.google.protobuf.Empt" +
+      "y\"\000(\001\0228\n\007Deletes\022\023.hbase.proto.Delete\032\026." +
+      "google.protobuf.Empty\"\000\0223\n\004Gets\022\020.hbase." +
+      "proto.Get\032\023.hbase.proto.Result\"\000(\0010\001B\"\n\024" +
+      "io.lefty.hbase.protoB\nHBaseProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4094,8 +4978,14 @@ public final class HBaseProto {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_hbase_proto_Get_descriptor,
         new java.lang.String[] { "Table", "Id", "Column", });
-    internal_static_hbase_proto_Result_descriptor =
+    internal_static_hbase_proto_Delete_descriptor =
       getDescriptor().getMessageTypes().get(5);
+    internal_static_hbase_proto_Delete_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_hbase_proto_Delete_descriptor,
+        new java.lang.String[] { "Id", "Table", "Column", });
+    internal_static_hbase_proto_Result_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_hbase_proto_Result_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_hbase_proto_Result_descriptor,
