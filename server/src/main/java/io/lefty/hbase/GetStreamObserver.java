@@ -1,9 +1,9 @@
 package io.lefty.hbase;
 
-import com.google.bigtable.repackaged.io.grpc.StatusRuntimeException;
 import com.google.protobuf.ByteString;
 
 import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import io.lefty.hbase.proto.HBaseProto.Column;
 import io.lefty.hbase.proto.HBaseProto.ColumnQualifier;
