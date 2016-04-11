@@ -74,7 +74,7 @@
     <dependency>
       <groupId>com.google.cloud.bigtable</groupId>
       <artifactId>bigtable-hbase-1.0</artifactId>
-      <version>0.2.3-SNAPSHOT</version>
+      <version>0.2.4</version>
       <exclusions>
         <exclusion>
           <groupId>org.apache.hbase</groupId>
