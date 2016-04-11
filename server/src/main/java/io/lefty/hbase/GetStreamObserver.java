@@ -107,8 +107,9 @@ final class GetStreamObserver implements StreamObserver<Get> {
       response.onError(ex);
       return null;
     } catch (RuntimeException ex) {
-      response.onError(ex);
-      throw new io.grpc.StatusRuntimeException(Status.fromThrowable(ex));
+      LOG.error("error getting from hbase.", ex);
+      response.onError(new io.grpc.StatusRuntimeException(Status.fromThrowable(ex)));
+      return null;
     }
   }
 
@@ -136,12 +137,11 @@ final class GetStreamObserver implements StreamObserver<Get> {
   }
 
   private static Result fromHBaseResult(org.apache.hadoop.hbase.client.Result result) {
-    Result.Builder r = Result.newBuilder()
-        .setId(ByteString.copyFrom(result.getRow()));
+    Result.Builder r = Result.newBuilder();
     if (result == null || result.isEmpty()) {
-      r.setFound(false);
-      return r.build();
+      return r.setFound(false).build();
     }
+    r.setId(ByteString.copyFrom(result.getRow()));
 
     r.setFound(true);
     Columns.Builder columns = r.getColumnsBuilder();
