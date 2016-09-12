@@ -53,11 +53,9 @@ public final class Funbase {
       }
       return hbase;
     } else {
-      LOG.info("connecting to google BigTable: {}, {}, {}", opts.hbaseProjectId,
-          opts.hbaseZone, opts.hbaseClusterId);
+      LOG.info("connecting to google BigTable: {}, {}", opts.hbaseProjectId, opts.hbaseInstanceId);
       // Connect to a google cloud BigTable.
-      return BigtableConfiguration.connect(opts.hbaseProjectId, opts.hbaseZone,
-          opts.hbaseClusterId);
+      return BigtableConfiguration.connect(opts.hbaseProjectId, opts.hbaseInstanceId);
     }
   }
 

@@ -27,6 +27,8 @@ final class Options {
   public String hbaseZone;
   @Option(name = "-hbase_cluster_id")
   public String hbaseClusterId;
+  @Option(name = "-hbase_instance_id")
+  public String hbaseInstanceId;
 
   /**
    * Port for the GRPC server to listen on.
