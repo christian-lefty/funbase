@@ -4,7 +4,7 @@ import com.google.cloud.bigtable.hbase.BigtableConfiguration;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import io.lefty.hbase.proto.HBaseGrpc;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Connection;
@@ -31,7 +31,7 @@ public final class Funbase {
 
     FunbaseGrpcService grpcService = new FunbaseGrpcService(hbase, service);
     Server server = ServerBuilder.forPort(opts.port)
-        .addService(HBaseGrpc.bindService(grpcService))
+        .addService(grpcService)
         .build();
     LOG.info("hbase grpc is taking the stage on 0.0.0.0:" + opts.port);
     server.start();

@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutorService;
 /**
  * Implementation of the GRPC service.
  */
-final class FunbaseGrpcService implements HBaseGrpc.HBase {
+final class FunbaseGrpcService extends HBaseGrpc.HBaseImplBase {
   private static final Logger LOG = LoggerFactory.getLogger(FunbaseGrpcService.class);
 
   private final Connection hbase;
